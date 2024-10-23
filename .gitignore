@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env  # Environment files (don't commit sensitive data)
+env/
+venv/
+*.sqlite3  # Ignore local SQLite databases if used
+
+# Django
+/static/   # If using Django's collectstatic
+/media/    # User-uploaded files
+db.sqlite3 # Ignore SQLite DB (if it’s still present for local development)
+*.log      # Log files
+
+# Django migrations
+*/migrations/*.pyc
+*/migrations/*.py
+
+# PostgreSQL data (bind-mounted volumes)
+db/data/
+
+# Docker
+docker-compose.override.yml  # If you use an override file
+docker-compose.yml
+*.log
+docker-compose.logs
+docker-compose.*
+
+# Ignore Docker-related files
+*.pid
+*.sock
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Git and CI/CD
+.git/
+.vscode/   # If you're using Visual Studio Code
+.idea/     # PyCharm/IntelliJ files
+*.swp      # Vim swap files
+*.bak      # Backup files
+
+# Ignore build files
+build/
+dist/
+*.egg-info/
+
+
+
+readme.txt
+.env

@@ -1,0 +1,5 @@
+FROM postgres:latest
+ENV POSTGRES_USER=django_postgreuser
+ENV POSTGRES_PASSWORD=django_postgre_password
+ENV POSTGRES_DB=finance_db
+EXPOSE 5431
