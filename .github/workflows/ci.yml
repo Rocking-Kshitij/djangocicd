@@ -1,0 +1,24 @@
+name: Project Pipeline
+on:
+  push:
+    branches:
+      - develop
+      - feature/*
+  workflow_dispatch
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and start Docker compose services
+        run: docker compose -f docker-compose.yml up -d
+
+      - name: Run Django tests
+        run: docker compose exec web python ./tooplat/manage.py test
+
+      - name: Finally stop docker compose
+        run: docker compose -f docker-compose.yml down
