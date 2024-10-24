@@ -42,5 +42,3 @@ jobs:
 
       - name: Run Django tests
         run: docker compose exec web python ./tooplat/manage.py test
-      - name: Finally stop docker compose
-        run: docker compose -f docker-compose.yml down
