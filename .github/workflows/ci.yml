@@ -25,7 +25,7 @@ jobs:
           db_PORT: ${{secrets.DB_PORT}}
 
         run: |
-          echo "SECRET_KEY=$SECRET_KEY" > .env
+          echo "SECRET_KEY=$SECRET_KEY" >> .env
           echo "db_name=$db_name" >> .env
           echo "db_user=$db_user" >> .env
           echo "db_PASSWORD=$db_PASSWORD" >> .env
