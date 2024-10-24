@@ -13,8 +13,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Build and start Docker compose services
+      
+      - name: Create .env
+        shell: bash
         env:
           SECRET_KEY: ${{secrets.DB_SECRET_KEY}}
           db_PASSWORD: ${{secrets.DB_PASSWORD}}
@@ -22,6 +23,20 @@ jobs:
           db_user: ${{secrets.DB_USER}}
           db_HOST: ${{secrets.DB_HOST}}
           db_PORT: ${{secrets.DB_PORT}}
+
+        run: |
+          echo "SECRET_KEY=$SECRET_KEY" > .env
+          echo "db_name=$db_name" >> .env
+          echo "db_user=$db_user" >> .env
+          echo "db_PASSWORD=$db_PASSWORD" >> .env
+          echo "db_HOST=$db_HOST" >> .env
+          echo "db_PORT=$db_PORT" >> .env
+          cat .env
+                    
+
+
+      - name: Build and start Docker compose services
+        
         run: docker compose -f docker-compose.yml up -d
 
 
