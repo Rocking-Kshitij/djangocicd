@@ -36,8 +36,8 @@ jobs:
                     
       - name: Build and start Docker compose services
         run: |
-        docker compose -f docker-compose.yml up -d
-        sleep 20
+          docker compose -f docker-compose.yml up -d
+          sleep 20
 
 
       - name: Run Django tests
