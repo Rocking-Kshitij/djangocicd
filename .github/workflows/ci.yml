@@ -37,7 +37,7 @@ jobs:
       - name: Build and start Docker compose services
         run: |
           ls
-          docker compose -f docker-compose.yml up -d
+          docker compose -f docker-compose.yml up --build -d
           sleep 20
 
 
