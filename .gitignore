@@ -18,15 +18,7 @@ db.sqlite3 # Ignore SQLite DB (if it’s still present for local development)
 */migrations/*.pyc
 */migrations/*.py
 
-# PostgreSQL data (bind-mounted volumes)
-db/data/
 
-# Docker
-docker-compose.override.yml  # If you use an override file
-docker-compose.yml
-*.log
-docker-compose.logs
-docker-compose.*
 
 # Ignore Docker-related files
 *.pid
@@ -47,7 +39,6 @@ Thumbs.db
 build/
 dist/
 *.egg-info/
-
 
 
 readme.txt
