@@ -13,9 +13,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      
-
-      - name: setup env
+    
+      - name: Build and start Docker compose services
         env:
           SECRET_KEY: ${{secrets.DB_SECRET_KEY}}
           db_PASSWORD: ${{secrets.DB_PASSWORD}}
@@ -23,8 +22,6 @@ jobs:
           db_user: ${{secrets.DB_USER}}
           db_HOST: ${{secrets.DB_HOST}}
           db_PORT: ${{secrets.DB_PORT}}
-
-      - name: Build and start Docker compose services
         run: docker compose -f docker-compose.yml up -d
 
       - name: Run Django tests
