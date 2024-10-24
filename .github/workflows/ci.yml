@@ -23,7 +23,7 @@ jobs:
             echo "db_PASSWORD = ${{secrets.DB_PASSWORD}}" >> .env
             echo "db_HOST = ${{secrets.DB_HOST}}" >> .env
             echo "db_PORT = ${{secrets.DB_PORT}}" >> .env
-
+            cat .env
       - name: Build and start Docker compose services
         run: docker compose -f docker-compose.yml up -d
 
