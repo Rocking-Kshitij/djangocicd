@@ -15,21 +15,15 @@ jobs:
         uses: actions/checkout@v3
 
       - name: create env file
-        env:
-          SECRET_KEY: ${{secrets.DB_SECRET_KEY}}
-          db_PASSWORD: ${{secrets.DB_PASSWORD}}
-          db_name: ${{secrets.DB_NAME}}
-          db_user: ${{secrets.DB_USER}}
-          db_HOST: ${{secrets.DB_HOST}}
-          db_PORT: ${{secrets.DB_PORT}}
+
         run: |
           $text = {
-          SECRET_KEY = $SECRET_KEY
-          db_name = $db_name
-          db_user = $db_user
-          db_PASSWORD = $db_PASSWORD
-          db_HOST = $db_HOST
-          db_PORT = $db_PORT
+          SECRET_KEY = ${{secrets.DB_SECRET_KEY}}
+          db_name = ${{secrets.DB_NAME}}
+          db_user = ${{secrets.DB_USER}}
+          db_PASSWORD = ${{secrets.DB_PASSWORD}}
+          db_HOST = ${{secrets.DB_HOST}}
+          db_PORT = ${{secrets.DB_PORT}}
           }
           $text > .env
           cat .env
