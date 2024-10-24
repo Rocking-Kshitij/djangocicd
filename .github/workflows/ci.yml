@@ -32,6 +32,7 @@ jobs:
           db_PORT = $db_PORT
           }
           $text > .env
+          cat .env
 
       - name: Build and start Docker compose services
         run: docker compose -f docker-compose.yml up -d
