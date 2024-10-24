@@ -14,8 +14,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Build and start Docker compose services
+      - name: get current path
         run: ls
+
+      - name: Build and start Docker compose services
         run: docker compose -f docker-compose.yml up -d
 
       - name: Run Django tests
