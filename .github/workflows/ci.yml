@@ -34,15 +34,13 @@ jobs:
           "@
           $v | Out-File -Encoding ASCII .env
                     
-
-
       - name: Build and start Docker compose services
-        
-        run: docker compose -f docker-compose.yml up -d
+        run: |
+        docker compose -f docker-compose.yml up -d
+        sleep 20
 
 
       - name: Run Django tests
         run: docker compose exec web python ./tooplat/manage.py test
-
       - name: Finally stop docker compose
         run: docker compose -f docker-compose.yml down
