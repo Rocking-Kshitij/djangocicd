@@ -13,6 +13,6 @@ db_HOST = db
 db_PORT = 5432
 EOL
 sleep 10
-python ./tooplat/manage.py runserver 0.0.0.0:8001
+
 
 echo "yee! server started"
