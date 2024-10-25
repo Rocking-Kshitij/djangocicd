@@ -37,11 +37,11 @@ jobs:
       - name: Build and start Docker compose services
         run: |
           ls
-          docker compose -f docker-compose.yml up --build -d
+          docker compose -f docker-compose.yml up -d
           sleep 20
-          
+
       - name: Run Django tests
-        run: docker exec web python ./app/tooplat/manage.py test
+        run: docker exec web_cont python ./tooplat/manage.py test
 
 
 
