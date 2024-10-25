@@ -13,6 +13,6 @@ db_HOST = db
 db_PORT = 5432
 EOL
 sleep 10
-
+mv .env* .env
 
 echo "yee! server started"
