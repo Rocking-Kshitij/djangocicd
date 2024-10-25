@@ -7,5 +7,6 @@ COPY Dockerfile/scripts/setupsc.sh /app/
 COPY .env* /app/
 EXPOSE 8002
 RUN mv .env* .env
+RUN sed -i "s/localhost/db/" .env && sed -i "s/5431/5432/g" .env
 RUN chmod +x setupsc.sh && sh ./setupsc.sh
 CMD ["python", "./tooplat/manage.py", "runserver", "0.0.0.0:8001"]
