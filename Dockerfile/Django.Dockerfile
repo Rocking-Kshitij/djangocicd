@@ -4,6 +4,7 @@ COPY requirement.txt /app/
 RUN pip3 install -r requirement.txt
 COPY tooplat /app/tooplat/
 COPY Dockerfile/scripts/setupsc.sh /app/
+COPY .env* /app/
 EXPOSE 8002
 RUN chmod +x setupsc.sh && sh ./setupsc.sh
 RUN mv .env* .env

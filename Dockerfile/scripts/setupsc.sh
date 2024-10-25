@@ -1,18 +1,6 @@
 #!/bin/bash
 
 echo "executing script"
-ls
-sleep 2
-touch .env
-cat <<EOL >.env
-SECRET_KEY = django-insecure-_%en8$^p@yuv3@e6b5t_fx-68fk3n1cf7!^a_c#++@kv)l3^97
-db_name = finance_db
-db_user = django_postgreuser
-db_PASSWORD = django_postgre_password
-db_HOST = db
-db_PORT = 5432
-EOL
-sleep 10
-mv .env* .env
-
+sed -i "s/db_HOST = localhost/db_HOST = db/" .env
+sed -i "s/db_PORT = 5431/db_PORT = 5432/g" .env
 echo "yee! server started"
