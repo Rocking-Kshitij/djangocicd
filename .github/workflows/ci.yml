@@ -39,6 +39,9 @@ jobs:
           ls
           docker compose -f docker-compose.yml up --build -d
           sleep 20
+          
+      - name: Run Django tests
+        run: docker exec web python ./app/tooplat/manage.py test
 
 
 
