@@ -38,10 +38,13 @@ jobs:
         run: |
           ls
           docker compose -f docker-compose.yml up -d
-          sleep 20
+          sleep 10
 
       - name: Run Django tests
         run: docker exec web_cont python ./tooplat/manage.py test
+
+      - name: Stop containers
+        run: docker compose -f docker-compose.yml down
 
 
 
